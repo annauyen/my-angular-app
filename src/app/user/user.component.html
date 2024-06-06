@@ -1,0 +1,11 @@
+<div>
+  <button (click)="onSelectUser()">
+    <!-- using signals -->
+    <img [src]="imagePath" [alt]="name" />
+    <span>{{ name }}</span>
+
+    <!-- using property binding -->
+    <!-- <img [src]="imagePath" [alt]="selectedUser.name" />
+    <span>{{ selectedUser.name }}</span> -->
+  </button>
+</div>
