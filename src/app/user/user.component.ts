@@ -7,6 +7,7 @@ import {
   signal,
 } from '@angular/core';
 import { DUMMY_USERS } from '../dummy-users';
+import { User } from './user.model';
 
 // create a helper const to pick random index for the user
 const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
@@ -41,18 +42,19 @@ export class UserComponent {
   //   this.selectedUser.set(DUMMY_USERS[randomIndex]);
   // }
 
-  @Input({ required: true }) id!: string;
-  @Input({ required: true }) avatar!: string;
-  @Input({ required: true }) name!: string;
+  // @Input({ required: true }) id!: string;
+  // @Input({ required: true }) avatar!: string;
+  // @Input({ required: true }) name!: string;
+  @Input({ required: true }) user!: User;
 
   @Output() select = new EventEmitter();
 
   get imagePath() {
-    return 'users/' + this.avatar;
+    return 'users/' + this.user.avatar;
   }
 
   onSelectUser() {
-    this.select.emit(this.id);
+    this.select.emit(this.user.id);
     // this.select.emit(this.name);
   }
 }
